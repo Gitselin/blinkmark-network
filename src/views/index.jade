@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	- var menu = 'index'
+	include includes/header
+	.page-header.bg.home-img.dark-theme
+		.container.text-center
+			div.col-sm-10.col-sm-offset-1
+				h1.thin= appTitle
+				p.description Moments go by in a Blink, mark it on a map!
+	.section
+		.container
+			.col-sm-4
+				- for (var i = 0; i < posts.length; i++)
+					if (i%3 === 0)
+						div
+							.post
+								.post-primary-content
+									.post-avatar.dark-theme
+										img(src= posts[i].author.avatar || "img/avatar-black.png")
+									h5= posts[i].author.username
+									p.post-text= posts[i].text
+									.post-photo
+										img(src=posts[i].picture)
+									.post-photo
+										img(src=posts[i].location)
+			.col-sm-4
+				- for (var i = 0; i < posts.length; i++)
+					if (i === 1 || i%3 == 1)
+						div
+							.post
+								.post-primary-content
+									.post-avatar.dark-theme
+										img(src= posts[i].author.avatar || "img/avatar-black.png")
+									h5= posts[i].author.username
+									p.post-text= posts[i].text
+									.post-photo
+										img(src=posts[i].picture)
+									.post-photo
+										img(src=posts[i].location)
+			.col-sm-4
+				- for (var i = 0; i < posts.length; i++)
+					if (i === 2 || i%3 === 2)
+						div
+							.post
+								.post-primary-content
+									.post-avatar.dark-theme
+										img(src= posts[i].author.avatar || "img/avatar-black.png")
+									h5= posts[i].author.username
+									p.post-text= posts[i].text
+									.post-photo
+										img(src=posts[i].picture)
+									.post-photo
+										img(src=posts[i].location)

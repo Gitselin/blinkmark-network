@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	include includes/header
+	.page-header.text-center.bg.home-img.dark-theme
+		.container
+			h1.light= profile.username
+	.section
+		.container
+			.col-sm-6.col-sm-offset-3
+				- for (var i = 0; i < posts.length; i++)
+					.post
+					.post-primary-content
+						.post-avatar.dark-theme
+							img(src= posts[i].author.avatar || "img/avatar-black.png")
+						h5= posts[i].author.username
+						p.post-text= posts[i].text
+						.post-photo
+							img(src=posts[i].picture)
+						.post-photo
+							img(src=posts[i].location)
